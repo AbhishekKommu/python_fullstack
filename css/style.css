@@ -6,7 +6,7 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(80, 56, 237);
+    background-color: rgb(194, 187, 235);
     color: black;
     line-height: 1.6;
 }
@@ -78,4 +78,7 @@ article{
     border-radius: 10px;
     border: 1px solid black;
     padding: 15px;
+}
+article:hover{
+    background-color: rgb(228, 224, 216);
 }
