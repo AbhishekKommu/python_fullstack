@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background-color: rgb(180, 229, 46);
+    background-color: rgb(234, 141, 242);
     color: rgb(27, 1, 1);
     padding: 30px;
     text-align: center;
@@ -59,13 +59,13 @@ h2 {
 }
 
 p {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .banner{
-    width: 300px;
-    height: 100px;
-    margin-bottom: 60px;
+    width: 100%;
+    height: 450px;
+    margin-bottom: 600px;
 }
 ul{
     padding-left: 20px;
@@ -81,4 +81,240 @@ article{
 }
 article:hover{
     background-color: rgb(228, 224, 216);
+}
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 20px;
+
+}
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 20px;
+
+}
+
+td {
+
+    padding: 15px;
+
+    text-align: center;
+
+}
+
+table,
+th,
+td {
+
+    border: 1px solid #f38181;
+
+}
+
+tr:hover {
+
+    background: #2b7df0;
+
+}
+
+ol {
+
+    padding-left: 25px;
+
+}
+
+ol li {
+
+    margin-bottom: 10px;
+
+}
+
+form {
+
+    background: rgb(151, 221, 215);
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+
+}
+
+label {
+
+    font-weight: bold;
+
+}
+
+input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="reset"]) {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 8px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #d3c4c4;
+
+    border-radius: 5px;
+
+    font-size: 16px;
+
+}
+
+select,
+textarea {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 8px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    font-size: 16px;
+
+}
+
+input[type="submit"] {
+
+    background: #0d6efd;
+
+    color: rgb(247, 217, 217);
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+input[type="submit"]:hover {
+
+    background: #084298;
+
+}
+
+input[type="reset"] {
+
+    background: #6c757d;
+
+    color: rgb(235, 243, 126);
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+
+input[type="reset"]:hover {
+
+    background: #565e64;
+
+}
+
+
+article {
+
+    background: rgb(65, 208, 212);
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+
+    transition: .3s;
+}
+
+.trainer-image {
+
+    width: 180px;
+
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    display: block;
+
+    margin: 0 auto 15px;
+
+}
+
+article:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+
+}
+
+iframe {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 10px;
+
+    margin-top: 20px;
+
+}
+
+video {
+
+    width: 100%;
+
+    border-radius: 10px;
+
+}
+
+audio {
+
+    width: 100%;
+
+}
+
+.trainer-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+article{
+
+    text-align:center;
+
+}
+
+img{
+
+max-width:100%;
+
+height:auto;
+
 }
