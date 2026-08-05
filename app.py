@@ -19,10 +19,10 @@ def contact():
 @app.route("/courses")
 def courses():
     return render_template("courses.html")   
-
-@app.route("/login")
-def login():
-    return render_template("login.html")     
+   
+@app.route("/trainers")
+def trainers():
+    return render_template("trainers.html")
 
 @app.route("/register",methods=["POST","GET"])
 def register():
@@ -35,7 +35,7 @@ def register():
         course=request.form["course"]
     return render_template("register.html")   
 
-@app.route('login',methods=["POST","GET"])
+@app.route('/login',methods=["POST","GET"])
 def login():
     if request.method == "POST":
         return render_template("login.html")
