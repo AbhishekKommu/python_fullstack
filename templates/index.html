@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
     <title>Home Page</title>
 </head>
 
@@ -14,13 +14,13 @@
         <h1>NRIIT Learning Management</h1>
         <p>Learn Practice Get Placed</p>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="courses.html">courses</a>
-            <a href="trainers.html">Trainers</a>
-            <a href="register.html">Register</a>
-            <a href="login.html">login</a>
-            <a href="contact.html">contact</a>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/courses">courses</a>
+            <a href="/trainers">Trainers</a>
+            <a href="/register">Register</a>
+            <a href="/login">login</a>
+            <a href="/contact">contact</a>
         </nav>
     </header>
     <mian>
@@ -31,7 +31,7 @@
                 Learning journey
             </p>
             <p id="message">Learning never stops</p>
-            <img src="banner.png" alt="LMS Banner" width="600" class="banner">
+            <img src="{{url_for('static',filename='images/banner.png')}}" alt="LMS Banner" width="800" class="banner">
             <br><br>
             <button onclick="showmessage()">Click Me</button>
             <button onclick="ChangeHeading()"> ChangeHeading</button>
