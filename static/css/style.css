@@ -22,17 +22,17 @@ hr {
     margin: 20px 0;
 }
 
-nav{
+nav {
 
-    display:flex;
+    display: flex;
 
-    justify-content:center;
+    justify-content: center;
 
-    gap:25px;
+    gap: 25px;
 
-    margin-top:20px;
+    margin-top: 20px;
 
-    flex-wrap:wrap;
+    flex-wrap: wrap;
 
 }
 
@@ -309,27 +309,27 @@ audio {
 
 }
 
-.trainer-container{
+.trainer-container {
 
-    display:grid;
+    display: grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
 
-    gap:25px;
-
-}
-
-article{
-
-    text-align:center;
+    gap: 25px;
 
 }
 
-img{
+article {
 
-max-width:100%;
+    text-align: center;
 
-height:auto;
+}
+
+img {
+
+    max-width: 100%;
+
+    height: auto;
 
 }
 
@@ -348,7 +348,7 @@ button#applyCourseBtn {
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin: 10px 5px 10px 0;
     font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 button#nextTrainerBtn:hover,
@@ -356,7 +356,7 @@ button#nextCourseBtn:hover,
 button#applyCourseBtn:hover {
     background-color: #0b5ed7;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 button#applyCourseBtn {
@@ -374,7 +374,7 @@ span#nextPopularCourseBtn {
     padding: 5px 15px;
     border-radius: 50%;
     background-color: #f8f9fa;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: inline-block;
 }
 
