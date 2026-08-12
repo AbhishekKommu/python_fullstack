@@ -16,11 +16,17 @@
         <nav>
             <a href="/">Home</a>
             <a href="/about">About</a>
-            <a href="/courses">courses</a>
+            <a href="/courses">Courses</a>
             <a href="/trainers">Trainers</a>
+
+            {% if session.get('user_email') %}
+            <a href="/logout">Logout</a>
+            {% else %}
             <a href="/register">Register</a>
-            <a href="/login">login</a>
-            <a href="/contact">contact</a>
+            <a href="/login">Login</a>
+            {% endif %}
+
+            <a href="/contact">Contact</a>
         </nav>
     </header>
     <mian>
@@ -47,10 +53,17 @@
         </section>
         <section>
             <h2>Popular Courses</h2>
-            <article>
-                <h3>Python FullStack</h3>
-                <p>Learn HTML, CSS, JavaScript, SQL and Flask</p>
-            </article>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span id="prevPopularCourseBtn"
+                    style="cursor: pointer; font-size: 32px; user-select: none;">&#10094;</span>
+                <article>
+                    <h3 id="popularCourseName">Python FullStack</h3>
+                    <p id="popularCourseDesc">Learn HTML, CSS, JavaScript, SQL and Flask</p>
+                </article>
+                <span id="nextPopularCourseBtn"
+                    style="cursor: pointer; font-size: 32px; user-select: none;">&#10095;</span>
+            </div>
+            
         </section>
     </mian>
     <footer>
