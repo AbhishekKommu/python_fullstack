@@ -5,39 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
-    <title>About page</title>
+    <title>Task Page</title>
 </head>
 
 <body>
     <header>
-        <br>
-        <h1> About in NRIIT Learning Management</h1>
+        Home<br>
+        <h1>NRIIT Learning Management</h1>
         <p>Learn Practice Get Placed</p>
         <nav>
             <a href="/">Home</a>
             <a href="/about">About</a>
-            <a href="/courses">courses</a>
+            <a href="/courses">Courses</a>
             <a href="/trainers">Trainers</a>
-            <a href="/register">Register</a>
+            {% if session.get('user_email') %}
             <a href="/tasks">My Tasks</a>
-            <a href="/login">login</a>
-            <a href="/contact">contact</a>
+            <a href="/logout">Logout</a>
+            {% else %}
+            <a href="/register">Register</a>
+            <a href="/login">Login</a>
+            {% endif %}
+
+            <a href="/contact">Contact</a>
         </nav>
     </header>
-    <main>
-        <section>
-            <h2>About NRIIT</h2>
-            <p>
-                NRIIT is commited to providing quality education in Python FullStack
-            </p>
-        </section>
-        <section>
-            <h2>Vision</h2>
-            <p>
-                Empowering studenets with Practical Software Skills
-            </p>
-        </section>
-    </main>
+    
     <footer>
 
         <hr>
