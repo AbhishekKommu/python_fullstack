@@ -29,7 +29,21 @@
             <a href="/contact">Contact</a>
         </nav>
     </header>
-    
+    <main>
+        <section>
+            <p>Welcome {{ session.get('user_email') }}</p>
+            <h2>Here are your tasks:</h2>
+            <h4>Manage your tasks here</h4>
+        </section>
+    <section>
+        <h>Add tasks</h>
+        <form id="addTaskForm" action="/api/tasks" method="post">
+            <label for="taskTitle">Task:</label>
+            <input type="text" id="taskTitle" name="taskTitle" required>
+            <button type="submit">Add Task</button>
+        </form>
+    </section>
+    </main>
     <footer>
 
         <hr>
