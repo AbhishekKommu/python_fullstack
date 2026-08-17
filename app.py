@@ -22,13 +22,15 @@ def init_db():
             course TEXT
         )
     """)
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS tasks (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user email TEXT NOT NULL,
+        title TEXT NOT NULL,
+        status TEXT DEFAULT 'pending'
+    )
+    """)
     conn.commit()
-    cursor.execute("PRAGMA table_info(users)")
-    existing_columns = [row[1] for row in cursor.fetchall()]
-    if 'course' not in existing_columns:
-        cursor.execute('ALTER TABLE users ADD COLUMN course TEXT')
-        conn.commit()
-    conn.close()
 
 init_db()
 
@@ -104,5 +106,32 @@ def logout():
     session.pop("user_email", None)
     session.pop("user_name", None)
     return redirect(url_for("login"))
+
+@app.route('/tasks', methods=["GET", "POST"])
+def tasks():
+    return render_template("tasks.html") 
+
+@app.route('/api/tasks', methods=["GET"])
+def api_tasks():
+    user_email = session.get("user_email")
+    if not user_email:
+        return jsonify({"status": "error", "message": "No user logged in!,login please!"}), 401
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM tasks WHERE user_email = ?", (user_email,))
+    tasks = cursor.fetchall()
+    conn.close()
+    tasks_list = [dict(row) for row in tasks]
+    return jsonify({"status": "success", "tasks": tasks_list})
+@app.route('/api/tasks', methods=["POST"])
+def api_add_task():
+    user_email = session.get("user_email")
+    if not user_email:
+        return jsonify({"status": "error", "message": "No user logged in!,login please!"}), 401
+    
+
+    
+
+    return jsonify({"status": "success", "message": "Task added successfully!"})
 if __name__ == '__main__':
     app.run(debug=True)
