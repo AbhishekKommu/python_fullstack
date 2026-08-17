@@ -1,4 +1,5 @@
 import sqlite3
+from turtle import title
 
 from flask import Flask,render_template,jsonify,request,redirect,url_for,session
 
@@ -25,7 +26,7 @@ def init_db():
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS tasks (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user email TEXT NOT NULL,
+        user_email TEXT NOT NULL,
         title TEXT NOT NULL,
         status TEXT DEFAULT 'pending'
     )
@@ -122,16 +123,21 @@ def api_tasks():
     tasks = cursor.fetchall()
     conn.close()
     tasks_list = [dict(row) for row in tasks]
-    return jsonify({"status": "success", "tasks": tasks_list})
+    return jsonify({"status": "success", "tasks": tasks_list}) 
+
 @app.route('/api/tasks', methods=["POST"])
 def api_add_task():
     user_email = session.get("user_email")
     if not user_email:
         return jsonify({"status": "error", "message": "No user logged in!,login please!"}), 401
-    
-
-    
-
+    data = request.get_json()
+    title = data.get("title")
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("INSERT INTO tasks (user_email, title) VALUES (?, ?)", (user_email, title))
+    conn.commit()
+    conn.close()
     return jsonify({"status": "success", "message": "Task added successfully!"})
+
 if __name__ == '__main__':
     app.run(debug=True)
