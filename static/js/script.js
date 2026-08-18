@@ -205,32 +205,32 @@ function loadTasks() {
     if (!taskList) return;
 
     fetch('/api/tasks')
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === 'success') {
-            taskList.innerHTML = '';
-            data.tasks.forEach(task => {
-                let li = document.createElement("li");
-                li.innerHTML = `
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                taskList.innerHTML = '';
+                data.tasks.forEach(task => {
+                    let li = document.createElement("li");
+                    li.innerHTML = `
                     <span style="text-decoration: ${task.status === 'Completed' ? 'line-through' : 'none'}">
                         ${task.title} - ${task.status}
                     </span>
                     <button onclick="updateTask(${task.id}, '${task.status === 'Pending' ? 'Completed' : 'Pending'}')">Toggle Status</button>
                     <button onclick="deleteTask(${task.id})">Delete</button>
                 `;
-                taskList.appendChild(li);
-            });
-        } else {
-            console.error(data.message);
-        }
-    })
-    .catch(error => console.error('Error fetching tasks:', error));
+                    taskList.appendChild(li);
+                });
+            } else {
+                console.error(data.message);
+            }
+        })
+        .catch(error => console.error('Error fetching tasks:', error));
 }
 
 // Add Task
 let addTaskForm = document.getElementById("addTaskForm");
 if (addTaskForm) {
-    addTaskForm.addEventListener("submit", function(event) {
+    addTaskForm.addEventListener("submit", function (event) {
         event.preventDefault();
         let titleInput = document.getElementById("taskTitle");
         let title = titleInput.value;
@@ -245,15 +245,15 @@ if (addTaskForm) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ title: title })
         })
-        .then(response => response.json())
-        .then(data => {
-            alert(data.message);
-            if (data.status === 'success') {
-                titleInput.value = '';
-                loadTasks();
-            }
-        })
-        .catch(error => console.error('Error adding task:', error));
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                if (data.status === 'success') {
+                    titleInput.value = '';
+                    loadTasks();
+                }
+            })
+            .catch(error => console.error('Error adding task:', error));
     });
 }
 
@@ -263,15 +263,15 @@ function updateTask(taskId, newStatus) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === 'success') {
-            loadTasks();
-        } else {
-            alert(data.message);
-        }
-    })
-    .catch(error => console.error('Error updating task:', error));
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                loadTasks();
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => console.error('Error updating task:', error));
 }
 
 function deleteTask(taskId) {
@@ -280,18 +280,18 @@ function deleteTask(taskId) {
     fetch(`/api/tasks/${taskId}`, {
         method: 'DELETE'
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === 'success') {
-            loadTasks();
-        } else {
-            alert(data.message);
-        }
-    })
-    .catch(error => console.error('Error deleting task:', error));
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                loadTasks();
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => console.error('Error deleting task:', error));
 }
 
 // Initial load
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     loadTasks();
 });
